@@ -4,6 +4,19 @@
   <%= Time.now %>
 </p>
 
+<% if @request.query['first_name'] && !@request.query['first_name'].empty? %>
+	<h3>Hello there <%= @request.query['first_name'] %></h3>
+	<p>You are <%= @request.query['sex'] %>.</p>
+<% else %>
+	<p>What is your name?</p>
+	<form method='post' action="<%= @request.path %>">
+		First Name: <input type="text" name="first_name" placeholder='first name'/><br />
+		<input type="radio" name="sex" value="male">Male<br>
+		<input type="radio" name="sex" value="female">Female<br>
+		<input type="submit" value="Submit" />
+	</form>
+<% end %>
+
 <p>
   My Name is:
   <%= @name %>
