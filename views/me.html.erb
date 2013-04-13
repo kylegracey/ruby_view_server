@@ -1,1 +1,17 @@
-foo
+<%
+	firstname = "Kyle"
+	lastname = "Gracey"
+	things = ['Motorcycles', 'Hockey', 'Cooking']
+%>
+
+<div class="header">
+	<h2>This is the 'Me' page. </h2>
+</div>
+<div>
+	<p>My name is <%= firstname %> <%= lastname %>. I like:</p>
+	<ul>
+		<% things.each do |thing| %>
+		<li><%= thing %></li>
+		<% end %>
+	</ul>
+</div>
